@@ -3,7 +3,9 @@ package sumeyye;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import utilities.TestBase;
 
@@ -34,21 +36,35 @@ public class TestCase1 extends TestBase {
         //date of birthday (DAY)
         WebElement ddmDay=driver.findElement(By.xpath("//select[@id='days']"));
         Select options1=new Select(ddmDay);
-        ddmDay.findElement(By.xpath("//option[@value='24']")).click();
+        options1.selectByValue("25");
         //date of birthday (MOUNTH)
         WebElement ddmMount=driver.findElement(By.xpath("//select[@id='months']"));
         Select options2=new Select(ddmMount);
-        ddmMount.findElement(By.xpath("(//option[@value='11'])[2]")).click();
+        options2.selectByValue("11");
         //date of birthday (YEAR)
         WebElement ddmYear=driver.findElement(By.xpath("//select[@id='years']"));
         Select options3=new Select(ddmYear);
-        ddmYear.findElement(By.xpath("//option[@value='1994']")).click();
+        options3.selectByValue("1994");
         //10. Select checkbox 'Sign up for our newsletter!'
-       driver.findElement(By.xpath("(//label[@for='newsletter']")).click();
-
+        //driver.findElement(By.xpath("(//input[@id='newsletter']")).click();
+        //(CHECKBOX1 ÇALIŞTIRAMADIM)
         //11. Select checkbox 'Receive special offers from our partners!'
-
+        //driver.findElement(By.xpath("(//input[@id='optin']")).click();
+        //(CHECKBOX2 ÇALIŞTIRAMADIM)
         //12. Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number
+        driver.findElement(By.id("first_name")).sendKeys("sumeyye");
+        driver.findElement(By.id("last_name")).sendKeys("guler");
+        driver.findElement(By.xpath("//input[@id='company']")).sendKeys("techproed");
+        driver.findElement(By.id("address1")).sendKeys("lale sokak");
+        driver.findElement(By.id("address2")).sendKeys("cicek caddesi");
+        //country
+        WebElement ddmCountry=driver.findElement(By.xpath("//select[@id='country']"));
+        Select options4=new Select(ddmCountry);
+        ddmCountry.findElement(By.xpath("//*[.='New Zealand']")).click();
+        driver.findElement(By.xpath("//input[@id='state']")).sendKeys("kavunici sokak");
+        driver.findElement(By.xpath("//input[@id='city']")).sendKeys("istanbul");
+        driver.findElement(By.xpath("//input[@id='zipcode']")).sendKeys("34250");
+        driver.findElement(By.xpath("//input[@id='mobile_number']")).sendKeys("09123456789");
         //13. Click 'Create Account button'
         //            14. Verify that 'ACCOUNT CREATED!' is visible
         //15. Click 'Continue' button
