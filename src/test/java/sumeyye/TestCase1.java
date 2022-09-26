@@ -25,7 +25,7 @@ public class TestCase1 extends TestBase {
         Assert.assertTrue(driver.findElement(By.xpath("(//h2)[3]")).isDisplayed());
         //6. Enter name and email address
         driver.findElement(By.xpath("//input[@type='text']")).sendKeys("sumeyye");
-        driver.findElement(By.xpath("(//input[@type='email'])[2]")).sendKeys("sumgul@gmail.com");
+        driver.findElement(By.xpath("(//input[@type='email'])[2]")).sendKeys("sumgule@gmail.com");
         //7. Click 'Signup' button
         driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click();
         //8. Verify that 'ENTER ACCOUNT INFORMATION' is visible
@@ -47,30 +47,38 @@ public class TestCase1 extends TestBase {
         options3.selectByValue("1994");
         //10. Select checkbox 'Sign up for our newsletter!'
         //driver.findElement(By.xpath("(//input[@id='newsletter']")).click();
-        //(CHECKBOX1 ÇALIŞTIRAMADIM)
+        //*********(CHECKBOX1 ÇALIŞTIRAMADIM)**********
         //11. Select checkbox 'Receive special offers from our partners!'
         //driver.findElement(By.xpath("(//input[@id='optin']")).click();
-        //(CHECKBOX2 ÇALIŞTIRAMADIM)
+        //***********(CHECKBOX2 ÇALIŞTIRAMADIM)***********
         //12. Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number
         driver.findElement(By.id("first_name")).sendKeys("sumeyye");
         driver.findElement(By.id("last_name")).sendKeys("guler");
         driver.findElement(By.xpath("//input[@id='company']")).sendKeys("techproed");
-        driver.findElement(By.id("address1")).sendKeys("lale sokak");
+        driver.findElement(By.id("address1")).sendKeys("lale mahallesi");
         driver.findElement(By.id("address2")).sendKeys("cicek caddesi");
         //country
         WebElement ddmCountry=driver.findElement(By.xpath("//select[@id='country']"));
         Select options4=new Select(ddmCountry);
-        ddmCountry.findElement(By.xpath("//*[.='New Zealand']")).click();
+        options4.selectByValue("Canada");
         driver.findElement(By.xpath("//input[@id='state']")).sendKeys("kavunici sokak");
         driver.findElement(By.xpath("//input[@id='city']")).sendKeys("istanbul");
-        driver.findElement(By.xpath("//input[@id='zipcode']")).sendKeys("34250");
+        driver.findElement(By.xpath("//input[@id='zipcode']")).sendKeys("34110");
         driver.findElement(By.xpath("//input[@id='mobile_number']")).sendKeys("09123456789");
         //13. Click 'Create Account button'
-        //            14. Verify that 'ACCOUNT CREATED!' is visible
+        driver.findElement(By.xpath("(//button[@class='btn btn-default'])[1]")).click();
+        //14. Verify that 'ACCOUNT CREATED!' is visible
+        Assert.assertTrue(driver.findElement(By.xpath("//b[text()='Account Created!']")).isDisplayed());
         //15. Click 'Continue' button
+        driver.findElement(By.xpath("//a[text()='Continue']")).click();
         //16. Verify that 'Logged in as username' is visible
+        Assert.assertTrue(driver.findElement(By.xpath("//i[@class='fa fa-user']")).isDisplayed());
         //17. Click 'Delete Account' button
+        driver.findElement(By.xpath("(//a[@style='color:brown;'])[2]")).click();
+        driver.findElement(By.xpath("//button[@class='btn btn-danger']")).click();
         //18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
+        //**************(BU KISIM BENDE ÇIKMADI, VE HESABIM SİLİNMEDİ)****************
+
     }
 
 }
