@@ -78,6 +78,7 @@ public class TestCase1 extends TestBase {
         driver.findElement(By.xpath("//button[@class='btn btn-danger']")).click();
         //18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
         //**************(BU KISIM BENDE ÇIKMADI, VE HESABIM SİLİNMEDİ)****************
+        //github deneme için bu satırı yazdım
 
     }
 
