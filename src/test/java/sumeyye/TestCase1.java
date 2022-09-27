@@ -25,7 +25,7 @@ public class TestCase1 extends TestBase {
         Assert.assertTrue(driver.findElement(By.xpath("(//h2)[3]")).isDisplayed());
         //6. Enter name and email address
         driver.findElement(By.xpath("//input[@type='text']")).sendKeys("sumeyye");
-        driver.findElement(By.xpath("(//input[@type='email'])[2]")).sendKeys("sumgule@gmail.com");
+        driver.findElement(By.xpath("(//input[@type='email'])[2]")).sendKeys("sumgul15485654@gmail.com");
         //7. Click 'Signup' button
         driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click();
         //8. Verify that 'ENTER ACCOUNT INFORMATION' is visible
@@ -46,10 +46,10 @@ public class TestCase1 extends TestBase {
         Select options3=new Select(ddmYear);
         options3.selectByValue("1994");
         //10. Select checkbox 'Sign up for our newsletter!'
-        //driver.findElement(By.xpath("(//input[@id='newsletter']")).click();
+        driver.findElement(By.xpath("//input[@id='newsletter']")).click();
         //*********(CHECKBOX1 ÇALIŞTIRAMADIM)**********
         //11. Select checkbox 'Receive special offers from our partners!'
-        //driver.findElement(By.xpath("(//input[@id='optin']")).click();
+        driver.findElement(By.xpath("//input[@id='optin']")).click();
         //***********(CHECKBOX2 ÇALIŞTIRAMADIM)***********
         //12. Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number
         driver.findElement(By.id("first_name")).sendKeys("sumeyye");

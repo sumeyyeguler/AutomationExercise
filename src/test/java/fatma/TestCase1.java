@@ -3,6 +3,7 @@ import com.github.javafaker.Faker;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -38,10 +39,19 @@ public class TestCase1 extends TestBase {
         actions.click(driver.findElement(By.xpath("(//input[@name='title'])[2]"))).sendKeys(Keys.TAB).sendKeys(Keys.TAB)
                 .sendKeys(password).sendKeys(Keys.TAB).sendKeys("1").sendKeys(Keys.TAB)
                 .sendKeys("January").sendKeys(Keys.TAB).sendKeys("2020").perform();
+
+        JavascriptExecutor jse= (JavascriptExecutor) driver;
+
+                jse.executeScript("arguments[0].click();",driver.findElement(By.xpath("(//input[@type='checkbox'])[1]")));
+                jse.executeScript("arguments[0].click();",driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")));
+              //  actions.sendKeys(Keys.TAB).click().build().perform();
+
+
+     //   jse.executeScript("argument[0].click();",driver.findElement())
         //    //10. 'Bültenimize kaydolun!' onay kutusunu seçin.
-        driver.findElement(By.cssSelector("#newsletter")).click();
+      // driver.findElement(By.xpath("(//input[@type='checkbox'])[1]")).click();
         //    //11. 'Ortaklarımızdan özel teklifler alın!' onay kutusunu seçin.
-        driver.findElement(By.cssSelector("#optin")).click();
+        //driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).click();
         //    //12. Doldurma ayrıntıları: Ad, Soyadı, Şirket, Adres, Adres2, Ülke, Eyalet, Şehir, Posta Kodu, Cep Numarası
         actions.sendKeys(Keys.TAB).sendKeys(fkr.name().firstName())
                 .sendKeys(Keys.TAB).sendKeys(fkr.name().lastName())
